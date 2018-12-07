@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdicionarUsuarioFragment">
+    android:background="@color/colorPrimaryDark"
+    tools:context=".AdicionarAnuncioFragment">
 
 
     <EditText
         android:id="@+id/editTextInserirAnuncioId"
         android:layout_width="143dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="112dp"
         android:ems="10"
         android:hint="id"
@@ -25,9 +26,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="112dp"
+        android:layout_marginEnd="21dp"
         android:ems="10"
         android:hint="quantidade"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/editTextInserirAnuncioId"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,11 +39,13 @@
         android:id="@+id/editTextInserirAnuncioDescricao"
         android:layout_width="316dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="21dp"
         android:layout_marginTop="180dp"
+        android:layout_marginEnd="21dp"
         android:ems="10"
         android:hint="descrição"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,11 +53,13 @@
         android:id="@+id/editTextInserirAnuncioNomeAnunciante"
         android:layout_width="316dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="21dp"
         android:layout_marginTop="28dp"
+        android:layout_marginEnd="21dp"
         android:ems="10"
         android:hint="nome anunciante"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextInserirAnuncioDescricao" />
 
@@ -70,14 +78,16 @@
         style="@style/Widget.AppCompat.AutoCompleteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="34dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="34dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Cadastrar Anúncio"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
         android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -85,11 +95,13 @@
         android:id="@+id/editTextInserirAnuncioValor"
         android:layout_width="316dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="21dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="21dp"
         android:ems="10"
         android:hint="valor"
         android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextInserirAnuncioNomeAnunciante" />
 

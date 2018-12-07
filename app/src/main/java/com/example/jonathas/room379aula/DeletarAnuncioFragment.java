@@ -1,6 +1,5 @@
 package com.example.jonathas.room379aula;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,23 +9,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DeletarUsuarioFragment extends Fragment {
+public class DeletarAnuncioFragment extends Fragment {
     EditText ed1;
     Button bt1;
 
-    public DeletarUsuarioFragment() {
-        // Required empty public constructor
+    public DeletarAnuncioFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_deletar_usuario, container, false);
+        View view = inflater.inflate(R.layout.fragment_deletar_anuncio, container, false);
 
         ed1 = view.findViewById(R.id.editTextDeletarPorId);
         bt1 = view.findViewById(R.id.buttonDeletarPorId);
@@ -36,12 +34,16 @@ public class DeletarUsuarioFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 int id = Integer.parseInt(ed1.getText().toString());
+                String msg = "Não foi possível encontrar o anúncio com o ID: " + id;
                 Anuncio anuncio = new Anuncio(id);
 
-                MainActivity.myAppDatabase.myDAO().deletarAnuncio(anuncio);
-                ed1.setText("");
+                if (MainActivity.myAppDatabase.buscaAnuncio(anuncio)) {
+                    MainActivity.myAppDatabase.myDAO().deletarAnuncio(anuncio);
+                    msg = "Anúncio deletado com sucesso";
+                }
 
-                Toast.makeText(getActivity(), "Anúncio deletado com sucesso", Toast.LENGTH_SHORT).show();
+                ed1.setText("");
+                Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
             }
         });
 

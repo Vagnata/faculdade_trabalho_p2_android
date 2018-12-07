@@ -12,54 +12,48 @@ import android.widget.Toast;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AdicionarUsuarioFragment extends Fragment {
+public class AlterarAnuncioFragment extends Fragment {
 
     EditText editTextId, editTextQuantidade, editTextDescricao, editTextNomeAnunciante, editTextValor;
-    Button buttonSalvarUsuario;
+    Button btAt;
 
-
-    public AdicionarUsuarioFragment() {
-        // Required empty public constructor
-    }
-
+    public AlterarAnuncioFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_adicionar_usuario, container, false);
+        View view = inflater.inflate(R.layout.fragment_alterar_anuncio, container, false);
 
-        editTextId = view.findViewById(R.id.editTextInserirAnuncioId);
-        editTextQuantidade = view.findViewById(R.id.editTextInserirAnuncioQuantidade);
-        editTextDescricao = view.findViewById(R.id.editTextInserirAnuncioDescricao);
-        editTextNomeAnunciante = view.findViewById(R.id.editTextInserirAnuncioNomeAnunciante);
-        editTextValor = view.findViewById(R.id.editTextInserirAnuncioValor);
-        buttonSalvarUsuario = view.findViewById(R.id.buttonInserirUsuarioBanco);
+        editTextId = view.findViewById(R.id.editTextAlterarAnuncioId);
+        editTextQuantidade = view.findViewById(R.id.editTextAlterarAnuncioQuantidade);
+        editTextDescricao = view.findViewById(R.id.editTextAlterarAnuncioDescricao);
+        editTextNomeAnunciante = view.findViewById(R.id.editTextAlterarAnuncioNomeAnunciante);
+        editTextValor = view.findViewById(R.id.editTextAlterarAnuncioValor);
+        btAt = view.findViewById(R.id.buttonAlterarUsuario);
 
-        buttonSalvarUsuario.setOnClickListener(new View.OnClickListener() {
+        btAt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int id = Integer.parseInt(editTextId.getText().toString());
                 int quantidade = Integer.parseInt(editTextQuantidade.getText().toString());
                 String descricao = editTextDescricao.getText().toString();
                 String nomeAnunciante = editTextNomeAnunciante.getText().toString();
-                double  valor = Double.parseDouble(editTextValor.getText().toString());
+                double valor = Double.parseDouble(editTextValor.getText().toString());
 
                 Anuncio anuncio = new Anuncio(id, quantidade, descricao, nomeAnunciante, valor);
 
-                MainActivity.myAppDatabase.myDAO().
-                        inserirAnuncio(anuncio);
+                MainActivity.myAppDatabase.myDAO().atualizarAnuncio(anuncio);
+
+                Toast.makeText(getActivity(), "Anúncio atualizado com sucesso!",
+                        Toast.LENGTH_SHORT).show();
 
                 editTextId.setText("");
-                editTextId.setText("");
+                editTextQuantidade.setText("");
                 editTextDescricao.setText("");
                 editTextNomeAnunciante.setText("");
                 editTextValor.setText("");
-
-                Toast.makeText(getActivity(), "Anúncio criado com sucesso!", Toast.LENGTH_SHORT).show();
             }
         });
-
         return view;
     }
 

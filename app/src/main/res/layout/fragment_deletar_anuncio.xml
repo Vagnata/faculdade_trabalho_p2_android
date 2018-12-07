@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DeletarUsuarioFragment">
+    android:background="@color/colorPrimaryDark"
+    tools:context=".DeletarAnuncioFragment">
 
 
     <EditText
@@ -12,26 +13,30 @@
         style="@style/Widget.AppCompat.AutoCompleteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="34dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="34dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Deletar Anúncio"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
         android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextDeletarPorId"
-        android:layout_width="wrap_content"
+        android:layout_width="91dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
+        android:layout_marginStart="34dp"
         android:layout_marginTop="108dp"
+        android:layout_marginEnd="34dp"
         android:ems="10"
         android:hint="id"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
@@ -39,9 +44,11 @@
         android:id="@+id/buttonDeletarPorId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
+        android:layout_marginStart="34dp"
         android:layout_marginTop="92dp"
+        android:layout_marginEnd="34dp"
         android:text="Deletar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextDeletarPorId" />
 </android.support.constraint.ConstraintLayout>

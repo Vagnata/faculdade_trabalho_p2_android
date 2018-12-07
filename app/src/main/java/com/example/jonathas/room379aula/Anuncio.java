@@ -1,6 +1,7 @@
 package com.example.jonathas.room379aula;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "anuncios")
@@ -21,6 +22,7 @@ public class Anuncio {
         this.valor = valor;
     }
 
+    @Ignore
     public Anuncio(int id) {
         this.id = id;
     }

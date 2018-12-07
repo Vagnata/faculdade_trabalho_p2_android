@@ -1,13 +1,11 @@
 package com.example.jonathas.room379aula;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,17 +14,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
     Button btAdicionar, btListar, btAlterar, btDeletar;
 
-
-
     public HomeFragment() {
 
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         btAdicionar = view.findViewById(R.id.buttonInserirUsuario);
@@ -47,32 +41,24 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.buttonInserirUsuario:
-               MainActivity.fragmentManager.beginTransaction().
-                       replace(R.id.frameConteiner,
-                               new AdicionarUsuarioFragment()).addToBackStack(null)
-                       .commit();
+                this.getFragment(new AdicionarAnuncioFragment());
                 break;
             case R.id.buttonListarUsuario:
-                MainActivity.fragmentManager.beginTransaction().
-                        replace(R.id.frameConteiner,
-                                new ListarUsuariosFragment()).addToBackStack(null)
-                        .commit();
+                this.getFragment(new ListarAnunciosFragment());
                 break;
             case R.id.buttonAlterarUsuario:
-                MainActivity.fragmentManager.beginTransaction().
-                        replace(R.id.frameConteiner,
-                                new AlterarUsuarioFragment()).addToBackStack(null)
-                        .commit();
-
+                this.getFragment(new AlterarAnuncioFragment());
                 break;
             case R.id.buttonDeletarUsuario:
-                MainActivity.fragmentManager.beginTransaction().
-                        replace(R.id.frameConteiner,
-                                new DeletarUsuarioFragment()).addToBackStack(null)
-                        .commit();
+                this.getFragment(new DeletarAnuncioFragment());
                 break;
-
         }
 
+    }
+
+    private void getFragment(Fragment destinyFragment)
+    {
+        MainActivity.fragmentManager.beginTransaction().
+                replace(R.id.frameConteiner,destinyFragment).addToBackStack(null).commit();
     }
 }

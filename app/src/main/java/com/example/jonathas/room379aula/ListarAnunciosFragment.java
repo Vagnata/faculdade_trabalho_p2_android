@@ -13,12 +13,12 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListarUsuariosFragment extends Fragment {
+public class ListarAnunciosFragment extends Fragment {
 
     TextView textView;
 
 
-    public ListarUsuariosFragment() {
+    public ListarAnunciosFragment() {
         // Required empty public constructor
     }
 
@@ -27,7 +27,7 @@ public class ListarUsuariosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_listar_usuarios, container, false);
+        View view =  inflater.inflate(R.layout.fragment_listar_anuncios, container, false);
 
         textView = view.findViewById(R.id.textViewListarUsuarios);
 
